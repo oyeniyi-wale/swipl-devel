@@ -3942,7 +3942,7 @@ garbageCollect(void)
 
   term_refs_to_gvars(gvars, saved_bar_at);
   term_refs_to_argument_stack(&state, astack);
-  restore_attvars(attvars, PASS_LD1);
+  restore_attvars(attvars PASS_LD);
 
   assert(LD->mark_bar <= gTop);
 
@@ -5077,7 +5077,9 @@ markAtomsOnStacks(PL_local_data_t *ld)
   markAtomsOnGlobalStack(ld);
   markAtomsOnLocalStack(ld);
   markAtomsFindall(ld);
+#ifdef O_PLMT
   markAtomsThreadMessageQueue(ld);
+#endif
 }
 
 #endif /*O_ATOMGC*/

@@ -1319,7 +1319,7 @@ PL_get_context(pl_context_t *c, int thread_id)
 { GET_LD
   (void)thread_id;
 
-  if ( !LD )
+  if ( !HAS_LD )
     return FALSE;
 
   c->ld = LD;

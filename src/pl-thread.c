@@ -6046,6 +6046,15 @@ PL_destroy_engine(PL_engine_t e)
 { fail;
 }
 
+void
+PL_cleanup_fork(void)
+{
+}
+
+double
+ThreadCPUTime(PL_local_data_t *ld, int which) {
+  return CpuTime(which);
+}
 
 void
 initPrologThreads()
